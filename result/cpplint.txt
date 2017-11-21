@@ -1,0 +1,4 @@
+ravib@Inspiron-7559:~/catkin_ws/src/enpm808x_week_12$ cpplint $( find . -name \*.hpp -or -name \*.cpp | grep -vE -e "^./build/" -e "^./vendor/" -e "^./docs/" -e "^./results" )Done processing ./include/enpm808x_week_12/Walker.hpp
+Done processing ./src/enpm808x_week_12_node.cpp
+Done processing ./src/Walker.cpp
+

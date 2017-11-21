@@ -1,0 +1,9 @@
+ravib@Inspiron-7559:~/catkin_ws/src/enpm808x_week_12$ cppcheck --enable=all --std=c++11 --suppress=missingIncludeSystem $( find . -name \*.hpp -or -name \*.cpp | grep -vE -e "^./build/" -e "^./vendor/" -e "^./docs/" -e "^./results" )
+Checking include/enpm808x_week_12/Walker.hpp...
+1/3 files checked 34% done
+Checking src/Walker.cpp...
+2/3 files checked 72% done
+Checking src/enpm808x_week_12_node.cpp...
+3/3 files checked 100% done
+(information) Cppcheck cannot find all the include files (use --check-config for details)
+
