@@ -32,8 +32,8 @@ Walker::Walker() {}
 // Overloaded Constructor
 Walker::Walker(ros::NodeHandle n_) {
   velocity_pub_ =
-      n_.advertise<geometry_msgs::Twist>("cmd_vel_mux/input/navi", 30);
-  laser_sub_ = n_.subscribe("/scan", 30, &Walker::laserCallback, this);
+      n_.advertise<geometry_msgs::Twist>("cmd_vel_mux/input/navi", 10);
+  laser_sub_ = n_.subscribe("/scan", 10, &Walker::laserCallback, this);
 
   // Reset the the velocity
   msgs_.linear.x = 0;
@@ -58,7 +58,7 @@ void Walker::laserCallback(const sensor_msgs::LaserScan::ConstPtr& scan) {
   // If obst is nearby go to turning behavior
   for (const auto& itr : scan->ranges) {
     // scan->range_min is 0.45
-    if (itr <= scan->range_min + 0.5) {
+    if (itr <= scan->range_min + 0.55) {
       msgs_.linear.x = 0;
       msgs_.angular.z = MAX_VAL;
       velocity_pub_.publish(msgs_);

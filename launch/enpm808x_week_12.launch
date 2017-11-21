@@ -1,0 +1,13 @@
+<launch>
+  <env name="ROSCONSOLE_CONFIG_FILE"
+       value="$(find enpm808x_week_12)/config/custom.conf"/>
+
+  <arg name="record" default="false"/>
+
+  <include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch"/>
+
+  <node name="enpm808x_week_12_node" pkg="enpm808x_week_12" type="enpm808x_week_12_node" output="screen"/>
+
+  <node name="record" pkg="rosbag" type="record" args="--duration=35.0 -a -x /camera/(.*) -O $(find enpm808x_week_12)/result/walker.bag" if="$(arg record)"/>
+
+</launch>

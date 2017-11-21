@@ -30,7 +30,7 @@
 #include <sensor_msgs/LaserScan.h>
 #include <cmath>
 
-#define MAX_VAL 0.2
+#define MAX_VAL 0.25
 /**
  * @brief      Class for walker.
  */
